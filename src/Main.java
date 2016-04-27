@@ -20,18 +20,19 @@ public class Main extends JFrame {
     }
 
     public Main(){
-        //screen size
+        //define screen size
         this.setSize(400,400);
 
         //close application completely
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //set appear on middle of the screen
+        //Toolkit is a super class for abstract window toolkit
         Toolkit tk = Toolkit.getDefaultToolkit();
+        //dimension help to hold and return width and height of a component
         Dimension dim = tk.getScreenSize();
         int xPos = (dim.width / 2) - (this.getWidth()/2);
         int yPos = (dim.height / 2) - (this.getHeight()/2);
-        this.setLocation(xPos,yPos);
+        this.setLocation(xPos,yPos); //set appear on middle of the screen
         this.setResizable(false); //disable resize of application
 
         //title
@@ -49,6 +50,8 @@ public class Main extends JFrame {
         button1 = new JButton("Click Me");
 //        button1.setBorderPainted(false); //hide button
 //        button1.setContentAreaFilled(false); //make it don't look like a button
+
+        //create an instance of listenforevent to handle events
         ListenForButton lForButton = new ListenForButton();
         button1.addActionListener(lForButton);
         thePanel.add(button1); //add button to panel and to frame
@@ -90,7 +93,7 @@ public class Main extends JFrame {
         textField1.requestFocus();
     }
 
-    //Implement Listeners
+    //Implement ActionListener so it can react to events on component
     private class ListenForButton implements ActionListener{
 
 
@@ -105,6 +108,7 @@ public class Main extends JFrame {
         }
     }
 
+    //keylistener can track keys on keyboard
     private class ListenForKeys implements KeyListener{
 
         @Override
@@ -122,7 +126,7 @@ public class Main extends JFrame {
 
         }
     }
-
+    
     private class ListenForWindow implements WindowListener{
 
         //when window is created
