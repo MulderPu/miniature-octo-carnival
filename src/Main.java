@@ -126,7 +126,7 @@ public class Main extends JFrame {
 
         }
     }
-    
+
     private class ListenForWindow implements WindowListener{
 
         //when window is created
